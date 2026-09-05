@@ -1,0 +1,30 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+.pnp
+.pnp.js
+.pnp.*
+.trunk/*
+
+# testing
+/coverage
+
+# next.js
+/.next
+/out
+.vercel
+
+# production (legacy CRA output)
+/build
+
+# misc
+.DS_Store
+.env*.local
+
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.gstack/*
+.codacy/

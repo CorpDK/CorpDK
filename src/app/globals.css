@@ -1,0 +1,254 @@
+:root,
+.light {
+  color-scheme: light;
+  --plate-ink: #572573;
+  --bg: #ffffff;
+  --fg: #572573;
+  --wordmark: #572573;
+  --muted: color-mix(in srgb, #572573 78%, #ffffff);
+  --faint: color-mix(in srgb, #572573 58%, #ffffff);
+  --accent: #572573;
+  --accent-hover: #3d1a52;
+  --rule: color-mix(in srgb, #572573 22%, #ffffff);
+  --focus: #572573;
+}
+
+.dark {
+  color-scheme: dark;
+  --plate-ink: #572573;
+  --bg: #572573;
+  --fg: #ffffff;
+  --wordmark: #ffffff;
+  --muted: color-mix(in srgb, #ffffff 82%, #572573);
+  --faint: color-mix(in srgb, #ffffff 68%, #572573);
+  --accent: #ffffff;
+  --accent-hover: #f3e8f8;
+  --rule: color-mix(in srgb, #ffffff 28%, #572573);
+  --focus: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+    --plate-ink: #572573;
+    --bg: #572573;
+    --fg: #ffffff;
+    --wordmark: #ffffff;
+    --muted: color-mix(in srgb, #ffffff 82%, #572573);
+    --faint: color-mix(in srgb, #ffffff 68%, #572573);
+    --accent: #ffffff;
+    --accent-hover: #f3e8f8;
+    --rule: color-mix(in srgb, #ffffff 28%, #572573);
+    --focus: #ffffff;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans), "Noto Sans", "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.25rem;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: var(--accent-hover);
+}
+
+.theme-toggle svg {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.doorway {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2.25rem 1.35rem 3rem;
+}
+
+.doorway__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.25rem;
+}
+
+.doorway__wordmark {
+  margin: 0;
+  color: var(--wordmark);
+  font-family: var(--font-wordmark), Rochester, cursive;
+  font-weight: 400;
+  font-size: clamp(3.25rem, 16vw, 5.25rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+}
+
+.doorway__main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.45rem;
+  margin-top: 1.75rem;
+}
+
+.doorway__sentence {
+  max-width: 52ch;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.doorway__person {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.65rem;
+  row-gap: 0.2rem;
+}
+
+.doorway__name {
+  font-family: var(--font-name), "Carter One", cursive;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.doorway__role,
+.doorway__place {
+  font-weight: 600;
+}
+
+.doorway__proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1.25rem;
+  margin: 0.15rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doorway__mail a {
+  font-weight: 600;
+}
+
+.doorway__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: auto;
+  padding-top: 3rem;
+}
+
+.doorway__gstin {
+  color: var(--muted);
+  font-family: var(--font-mono), "Noto Sans Mono", ui-monospace, monospace;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.doorway__privacy {
+  max-width: 48ch;
+  color: var(--faint);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .doorway {
+    padding: 1.5rem 1.1rem 2.5rem;
+  }
+
+  .doorway__name {
+    font-size: 1.2rem;
+  }
+}
+
+@media print {
+  :root,
+  .light,
+  .dark,
+  body {
+    background: #fff;
+    color: #111;
+    color-scheme: light;
+  }
+
+  .theme-toggle {
+    display: none;
+  }
+
+  .doorway {
+    min-height: 0;
+    max-width: none;
+    padding: 0;
+  }
+
+  a {
+    color: inherit;
+  }
+}
